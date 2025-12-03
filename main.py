@@ -33,10 +33,12 @@ def make_order():
         # - 1 so we have the correct index for the list
         product_index = int(product_index) - 1
         quantity = int(input("What amount do you want? "))
-
-        order_list.append((list_of_products[product_index], quantity))
-        print("Product added to list!")
-        print()
+        if (list_of_products[product_index].quantity - quantity) < 0:
+            print("Amount is not in stock, please try again.")
+        else:
+            order_list.append((list_of_products[product_index], quantity))
+            print("Product added to list!")
+            print()
 
     #ordering
     price_total = best_buy.order(order_list)

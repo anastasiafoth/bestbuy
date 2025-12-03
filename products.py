@@ -7,9 +7,13 @@ class Product:
 
         if price < 0:
             raise ValueError("Price can´t be negative.")
+        if not price.isdigit():
+            raise ValueError("Price should be a number.")
 
         if quantity < 0:
             raise ValueError("Quantity can´t be negative.")
+        if not quantity.isdigit():
+            raise ValueError("Quantity should be a number.")
 
         self.name = name
         self.price = price
